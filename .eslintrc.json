@@ -1,0 +1,92 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+    "extends": [
+        "plugin:react/recommended",
+        "eslint:recommended"
+    ],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "prettier"
+    ],
+    "rules": {
+        "indent": [
+            "error",
+            4
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "quotes": [
+            "error",
+            "double"
+        ],
+        "semi": [
+            "error",
+            "never"
+        ],
+        "react/button-has-type": "error",
+        "react/default-props-match-prop-types": "error",
+        "react/destructuring-assignment": "error",
+        "react/forbid-prop-types": [ "error", {
+            "forbid": [ "any" ]
+        }],
+        "react/no-access-state-in-setstate": "error",
+        "react/no-children-prop": "error",
+        "react/no-danger": "error",
+        "react/no-danger-with-children": "error",
+        "react/no-deprecated": "error",
+        "react/no-direct-mutation-state": "error",
+        "react/no-find-dom-node": "error",
+        "react/no-is-mounted": "error",
+        "react/no-multi-comp": "error",
+        "react/no-redundant-should-component-update": "error",
+        "react/no-this-in-sfc": "error",
+        "react/no-unknown-property": "error",
+        "react/no-unsafe": "error",
+        "react/no-unused-prop-types": "error",
+        "react/no-unused-state": "error",
+        "react/no-will-update-set-state": "error",
+        "react/prop-types": "error",
+        "react/react-in-jsx-scope": "error",
+        "react/require-default-props": "error",
+        "react/require-render-return": "error",
+        "react/self-closing-comp" : "error",
+        "react/sort-comp": [ "error", {
+            "order": [
+                "static-methods",
+                "lifecycle",
+                "render",
+                "everything-else"
+            ]
+        }],
+        "react/sort-prop-types": "error",
+        "react/style-prop-object": "error",
+        "react/jsx-closing-bracket-location": "error",
+        "react/jsx-closing-tag-location": "error",
+        "react/jsx-curly-spacing" : [ "error", {
+            "when" : "always"
+        }],
+        "react/jsx-handler-names": "error",
+        "react/jsx-indent": "error",
+        "react/jsx-indent-props": "error",
+        "react/jsx-key" : "error",
+        "react/jsx-no-duplicate-props" : "error",
+        "react/jsx-pascal-case": "error",
+        "react/jsx-props-no-multi-spaces": "error",
+        "react/jsx-sort-default-props": "error",
+        "react/jsx-sort-props": "error",
+        "react/jsx-uses-react": "error",
+        "prettier/prettier": "error"
+    }
+}

@@ -1,0 +1,39 @@
+{
+    "name": "my-reads",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "react": "^16.4.2",
+        "react-dom": "^16.4.2",
+        "react-scripts": "1.1.4",
+        "react-test-renderer": "^16.4.2"
+    },
+    "scripts": {
+        "build": "react-scripts build",
+        "eject": "react-scripts eject",
+        "lint": "eslint .",
+        "lint:fix": "eslint . --fix",
+        "precommit": "yarn lint",
+        "prepush": "yarn test",
+        "start": "react-scripts start",
+        "test": "jest --config ./.jestconfig.json",
+        "test:w": "jest --config ./.jestcofig.json --watchAll"
+    },
+    "devDependencies": {
+        "@fortawesome/fontawesome-svg-core": "^1.2.0-14",
+        "@fortawesome/free-solid-svg-icons": "^5.1.0-11",
+        "@fortawesome/react-fontawesome": "^0.1.0-11",
+        "eslint": "^5.2.0",
+        "eslint-plugin-import": "^2.13.0",
+        "eslint-plugin-jsx-a11y": "^6.1.1",
+        "eslint-plugin-prettier": "^2.6.2",
+        "eslint-plugin-react": "^7.10.0",
+        "husky": "^0.14.3",
+        "jest": "^23.4.2",
+        "normalize.css": "^8.0.0",
+        "prettier": "^1.14.0",
+        "prop-types": "^15.6.2",
+        "react-bulma-components": "^1.5.0",
+        "styled-components": "^3.4.0"
+    }
+}
