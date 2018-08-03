@@ -4,8 +4,8 @@
         "es6": true
     },
     "extends": [
-        "plugin:react/recommended",
-        "eslint:recommended"
+        "eslint:recommended",
+        "plugin:react/recommended"
     ],
     "parserOptions": {
         "ecmaFeatures": {
@@ -15,32 +15,35 @@
         "sourceType": "module"
     },
     "plugins": [
-        "react",
-        "prettier"
+        "prettier",
+        "react"
     ],
     "rules": {
-        "indent": [
-            "error",
-            4
-        ],
-        "linebreak-style": [
-            "error",
-            "unix"
-        ],
-        "quotes": [
-            "error",
-            "double"
-        ],
-        "semi": [
-            "error",
-            "never"
-        ],
+        "indent": [ "error", 4 ],
+        "linebreak-style": [ "error", "unix" ],
+        "quotes": [ "error", "double" ],
+        "prettier/prettier": "error",
         "react/button-has-type": "error",
         "react/default-props-match-prop-types": "error",
         "react/destructuring-assignment": "error",
         "react/forbid-prop-types": [ "error", {
             "forbid": [ "any" ]
         }],
+        "react/jsx-closing-bracket-location": "error",
+        "react/jsx-closing-tag-location": "error",
+        "react/jsx-curly-spacing" : [ "error", {
+            "when" : "always"
+        }],
+        "react/jsx-handler-names": "error",
+        "react/jsx-indent": "error",
+        "react/jsx-indent-props": "error",
+        "react/jsx-key" : "error",
+        "react/jsx-no-duplicate-props" : "error",
+        "react/jsx-pascal-case": "error",
+        "react/jsx-props-no-multi-spaces": "error",
+        "react/jsx-sort-default-props": "error",
+        "react/jsx-sort-props": "error",
+        "react/jsx-uses-react": "error",
         "react/no-access-state-in-setstate": "error",
         "react/no-children-prop": "error",
         "react/no-danger": "error",
@@ -72,21 +75,6 @@
         }],
         "react/sort-prop-types": "error",
         "react/style-prop-object": "error",
-        "react/jsx-closing-bracket-location": "error",
-        "react/jsx-closing-tag-location": "error",
-        "react/jsx-curly-spacing" : [ "error", {
-            "when" : "always"
-        }],
-        "react/jsx-handler-names": "error",
-        "react/jsx-indent": "error",
-        "react/jsx-indent-props": "error",
-        "react/jsx-key" : "error",
-        "react/jsx-no-duplicate-props" : "error",
-        "react/jsx-pascal-case": "error",
-        "react/jsx-props-no-multi-spaces": "error",
-        "react/jsx-sort-default-props": "error",
-        "react/jsx-sort-props": "error",
-        "react/jsx-uses-react": "error",
-        "prettier/prettier": "error"
+        "semi": [ "error", "never" ]
     }
 }
