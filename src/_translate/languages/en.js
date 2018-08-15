@@ -1,7 +1,9 @@
 const messages = {
     en: {
         translations: {
-            profile: "Profile"
+            titles: {
+                notFound: "Page not found"
+            }
         }
     }
 }

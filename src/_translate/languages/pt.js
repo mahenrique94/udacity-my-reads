@@ -2,9 +2,7 @@ const messages = {
     pt: {
         translations: {
             titles: {
-                home: "Início",
-                profile: "Perfil",
-                projects: "Projetos"
+                notFound: "Página não encontrada"
             }
         }
     }
