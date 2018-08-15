@@ -7,6 +7,9 @@
 # production
 /build
 
+# Jetbrains IDE
+.idea
+
 # misc
 .DS_Store
 .env.local

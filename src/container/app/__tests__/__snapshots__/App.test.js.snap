@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests for App component Should rendering without crash 1`] = `
+<h1>
+  Should rendering without crash
+</h1>
+`;
