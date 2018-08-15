@@ -1,46 +1,117 @@
 {
-    "name": "my-reads",
-    "version": "1.0.0",
-    "private": true,
-    "dependencies": {
-        "axios": "^0.18.0",
-        "history": "^4.7.2",
-        "i18next": "^11.6.0",
-        "i18next-browser-languagedetector": "^2.2.3",
-        "react": "^16.4.2",
-        "react-dom": "^16.4.2",
-        "react-i18next": "^7.10.1",
-        "react-router": "^4.3.1",
-        "react-router-dom": "^4.3.1",
-        "react-scripts": "1.1.4",
-        "react-test-renderer": "^16.4.2"
+  "name": "my-reads",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "autoprefixer": "7.1.6",
+    "axios": "^0.18.0",
+    "babel-core": "6.26.0",
+    "babel-eslint": "7.2.3",
+    "babel-jest": "20.0.3",
+    "babel-loader": "7.1.2",
+    "babel-preset-react-app": "^3.1.1",
+    "babel-runtime": "6.26.0",
+    "case-sensitive-paths-webpack-plugin": "2.1.1",
+    "chalk": "1.1.3",
+    "css-loader": "0.28.7",
+    "dotenv": "4.0.0",
+    "dotenv-expand": "4.2.0",
+    "eslint-config-react-app": "^2.1.0",
+    "eslint-loader": "1.9.0",
+    "extract-text-webpack-plugin": "3.0.2",
+    "file-loader": "1.1.5",
+    "fs-extra": "3.0.1",
+    "history": "^4.7.2",
+    "html-webpack-plugin": "2.29.0",
+    "i18next": "^11.6.0",
+    "i18next-browser-languagedetector": "^2.2.3",
+    "jest": "^23.5.0",
+    "object-assign": "4.1.1",
+    "postcss-flexbugs-fixes": "3.2.0",
+    "postcss-loader": "2.0.8",
+    "promise": "8.0.1",
+    "raf": "3.4.0",
+    "react": "^16.4.2",
+    "react-dev-utils": "^5.0.1",
+    "react-dom": "^16.4.2",
+    "react-i18next": "^7.10.1",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
+    "react-test-renderer": "^16.4.2",
+    "resolve": "1.6.0",
+    "style-loader": "0.19.0",
+    "sw-precache-webpack-plugin": "0.11.4",
+    "url-loader": "0.6.2",
+    "webpack": "3.8.1",
+    "webpack-dev-server": "2.9.4",
+    "webpack-manifest-plugin": "1.3.2",
+    "whatwg-fetch": "2.0.3"
+  },
+  "scripts": {
+    "build": "node scripts/build.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "precommit": "yarn lint",
+    "prepush": "yarn test",
+    "start": "node scripts/start.js",
+    "test": "jest --config ./.jestconfig.json",
+    "test:w": "jest --config ./.jestconfig.json --watchAll"
+  },
+  "devDependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.0-14",
+    "@fortawesome/free-solid-svg-icons": "^5.1.0-11",
+    "@fortawesome/react-fontawesome": "^0.1.0-11",
+    "eslint": "^5.3.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jest": "^21.21.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.11.1",
+    "husky": "^0.14.3",
+    "normalize.css": "^8.0.0",
+    "prop-types": "^15.6.2",
+    "react-bulma-components": "^1.5.0",
+    "styled-components": "^3.4.0"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,mjs}"
+    ],
+    "setupFiles": [
+      "<rootDir>/config/polyfills.js"
+    ],
+    "testMatch": [
+      "<rootDir>/src/**/__tests__/**/*.{js,jsx,mjs}",
+      "<rootDir>/src/**/?(*.)(spec|test).{js,jsx,mjs}"
+    ],
+    "testEnvironment": "node",
+    "testURL": "http://localhost",
+    "transform": {
+      "^.+\\.(js|jsx|mjs)$": "<rootDir>/node_modules/babel-jest",
+      "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
+      "^(?!.*\\.(js|jsx|mjs|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
     },
-    "scripts": {
-        "build": "react-scripts build",
-        "eject": "react-scripts eject",
-        "lint": "eslint .",
-        "lint:fix": "eslint . --fix",
-        "precommit": "yarn lint",
-        "prepush": "yarn test",
-        "start": "react-scripts start",
-        "test": "react-scripts test --env=jsdom",
-        "test:c": "yarn test -- --coverage",
-        "test:ci": "CI=true yarn test",
-        "test:w": "jest --config ./.jestcofig.json --watchAll"
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$"
+    ],
+    "moduleNameMapper": {
+      "^react-native$": "react-native-web"
     },
-    "devDependencies": {
-        "@fortawesome/fontawesome-svg-core": "^1.2.0-14",
-        "@fortawesome/free-solid-svg-icons": "^5.1.0-11",
-        "@fortawesome/react-fontawesome": "^0.1.0-11",
-        "eslint": "^5.2.0",
-        "eslint-plugin-import": "^2.13.0",
-        "eslint-plugin-jest": "^21.18.0",
-        "eslint-plugin-jsx-a11y": "^6.1.1",
-        "eslint-plugin-react": "^7.10.0",
-        "husky": "^0.14.3",
-        "normalize.css": "^8.0.0",
-        "prop-types": "^15.6.2",
-        "react-bulma-components": "^1.5.0",
-        "styled-components": "^3.4.0"
-    }
+    "moduleFileExtensions": [
+      "web.js",
+      "js",
+      "json",
+      "web.jsx",
+      "jsx",
+      "node",
+      "mjs"
+    ]
+  },
+  "babel": {
+    "presets": [
+      "react-app"
+    ]
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  }
 }
