@@ -1,7 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Tests for App component Should rendering without crash 1`] = `
-<h1>
-  Should rendering without crash
-</h1>
+<section
+  className="section"
+  style={Object {}}
+>
+  <div
+    className="container"
+    style={Object {}}
+  >
+    <h1>
+      Should rendering without crash
+    </h1>
+  </div>
+</section>
 `;
