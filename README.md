@@ -145,7 +145,7 @@ npm lint
 
 If some error was found, just run the same command with `lint:fix` to try fixed it.
 
-If you want to see a demo of the app: [demo]()
+If you want to see a demo of the app: [demo](https://udacity-my-reads.netlify.com/)
 
 If you want to see a documentation of the app: [documentation]()
 
