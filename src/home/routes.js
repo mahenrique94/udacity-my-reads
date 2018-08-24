@@ -1,7 +1,7 @@
-import Home from "./Home"
+import Home from "./pages/Home"
 
 const routes = [
-    { component: Home, path: "/" }
+    { component: Home, name: "home", path: "/" }
 ]
 
 export { routes }

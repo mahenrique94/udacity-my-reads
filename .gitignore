@@ -1,16 +1,14 @@
-# dependencies
+# Dependencies
 /node_modules
 
-# testing
-/coverage
-
-# production
-/build
+# Documentation
+.docz/dist
 
 # Jetbrains IDE
 .idea
+.vscode
 
-# misc
+# Misc
 .DS_Store
 .env.local
 .env.development.local
@@ -20,3 +18,10 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Production
+/build
+/dist
+
+# Testing
+/coverage

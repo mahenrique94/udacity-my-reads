@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests for Action component Should rendering with message when it was provided 1`] = `null`;
+
+exports[`Tests for Action component Should rendering without crashing 1`] = `null`;

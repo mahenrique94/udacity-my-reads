@@ -1,0 +1,31 @@
+{
+  "config": {
+    "title": "My Reads",
+    "description": "Project made to finish a first module in React Nanodregree program on Udacity.",
+    "themeConfig": {},
+    "ordering": "descending",
+    "version": "1.0.0",
+    "repository": null,
+    "port": 5000,
+    "src": "./docz"
+  },
+  "entries": {
+    "components/Action.mdx": {
+      "menu": "Components",
+      "name": "Action",
+      "order": 1,
+      "route": "/",
+      "id": "97edcc9a7ad35291c09a09f858764f96",
+      "filepath": "components/Action.mdx",
+      "link": null,
+      "slug": "components-action",
+      "headings": [
+        {
+          "depth": 1,
+          "slug": "action",
+          "value": "Action"
+        }
+      ]
+    }
+  }
+}

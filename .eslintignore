@@ -1,3 +1,6 @@
+.docz
+.idea
+.vscode
 /config
 /coverage
 /node_modules

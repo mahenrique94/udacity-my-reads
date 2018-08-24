@@ -1,23 +1,30 @@
 import React from "react"
+
 import { Route, Router, Switch } from "react-router"
 
-import { _combineRoutes } from "utils/routes"
+import { combineLinkedRoutes, combineRoutes } from "utils/routes"
 
+import { routes as booksRoutes } from "@/books/routes"
 import { routes as homeRoutes } from "@/home/routes"
-import { routes as notFoundRoutes } from "@/components/notFound/routes"
+import { routes as notFoundRoutes } from "components/notFound/routes"
 
 import { history } from "./history"
 
-const routes = () => (
+const systemRoutes = combineRoutes(
+    booksRoutes,
+    homeRoutes,
+    notFoundRoutes
+)
+
+const routes = combineLinkedRoutes(systemRoutes)
+
+const Routes = () => (
     <Router history={ history }>
         <Switch>
-            {
-                _combineRoutes(
-                    homeRoutes,
-                    notFoundRoutes
-                ).map((route, index) => <Route { ...route } exact key={ index }/>) }
+            { systemRoutes.map((route, index) => <Route { ...route } exact key={ index }/>) }
         </Switch>
     </Router>
 )
 
-export default routes
+export { routes }
+export default Routes

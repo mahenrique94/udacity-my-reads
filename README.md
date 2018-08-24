@@ -1,5 +1,3 @@
-https://review.udacity.com/#!/rubrics/1093/view
-
 # My Reads
 Project made to finish a first module in React Nanodregree program on Udacity.
 
@@ -25,6 +23,8 @@ To do this project, was used some libraries, like:
 17. react-test-renderer
 18. styled-components
 19. webpack
+20. cypress
+21. docz
 
 Those are main libraries of the project.
 
@@ -74,6 +74,60 @@ or
 npm test
 ```
 
+#### It's possible to test your UI by using `Cypress`, there's a three commands:
+
+To test the UI in your terminal, run:
+
+```
+yarn cypress
+```
+
+or
+
+```
+npm cypress
+```
+
+To test the UI by using and showing a browser, like chrome, run:
+
+```
+yarn cypress:chrome
+```
+
+or
+
+```
+npm cypress:chrome
+```
+
+And, if you want choose a specific test or to see the all possibles tests, run:
+
+```
+yarn cypress:open
+```
+
+or
+
+```
+npm cypress:open
+```
+
+### Documentation
+
+It's possible to test the app share components, by using `Docz`
+
+To see a full documentation, you can run:
+
+```
+yarn docz:dev
+```
+
+or
+
+```
+npm docz:dev
+```
+
 All matches files will be tested.
 
 ### ESLint
@@ -90,5 +144,10 @@ npm lint
 ```
 
 If some error was found, just run the same command with `lint:fix` to try fixed it.
+
+If you want to see a demo of the app: [demo]()
+If you want to see a documentation of the app: [documentation]()
+
+The app has been hosted by `Netlify`.
 
 Thanks

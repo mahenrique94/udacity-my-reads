@@ -3,15 +3,30 @@
     "browser": true,
     "clearMocks": true,
     "collectCoverage": true,
+    "collectCoverageFrom": [
+        "src/**/*.{js}",
+        "!**/node_modules/**"
+    ],
     "coverageDirectory": "coverage",
     "coveragePathIgnorePatterns": [
         "/build/",
-        "/node_modules/"
+        "/coverage/",
+        "/node_modules/",
+        "/public/",
+        "/scripts/"
     ],
     "coverageReporters": [
         "html",
         "json"
     ],
+    "coverageThreshold": {
+        "global": {
+            "branches": 80,
+            "functions": 80,
+            "lines": 80,
+            "statements": -10
+        }
+    },
     "errorOnDeprecated": true,
     "globals": {},
     "moduleDirectories": [
@@ -20,12 +35,31 @@
     "moduleFileExtensions": [
         "js"
     ],
+    "moduleNameMapper": {
+        "^react-native$": "react-native-web",
+        "^@/(.*)$": "<rootDir>/src/$1",
+        "^cfg/(.*)$": "<rootDir>/src/_config/$1",
+        "^components/(.*)$": "<rootDir>/src/components/$1",
+        "^constants/(.*)$": "<rootDir>/src/constants/$1",
+        "^containers/(.*)$": "<rootDir>/src/containers/$1",
+        "^css/(.*)$": "<rootDir>/src/_css/$1",
+        "^(http)$": "<rootDir>/src/_config/http",
+        "^hoc/(.*)$": "<rootDir>/src/hoc/$1",
+        "^(i18n)$": "<rootDir>/src/_translate/i18n",
+        "^(routes)$": "<rootDir>/src/_config/routes",
+        "^utils/(.*)$": "<rootDir>/src/utils/$1"
+    },
     "notify": false,
     "resetMocks": true,
+    "resetModules": true,
+    "setupFiles": [
+        "<rootDir>/config/polyfills.js",
+        "<rootDir>/src/setupFiles.js"
+    ],
     "testEnvironment": "jest-environment-jsdom",
     "testMatch": [
-        "**/__tests__/**/*.js?",
-        "**/?(*.)+(spec|test).js?(x)"
+        "<rootDir>/src/**/__tests__/**/*.{js}",
+        "<rootDir>/src/**/?(*.)(test).{js}"
     ],
     "testPathIgnorePatterns": [
         "/build/",
@@ -33,6 +67,15 @@
         "/node_modules/",
         "/public/",
         "/scripts/"
+    ],
+    "testURL": "http://localhost",
+    "transform": {
+        "^.+\\.(js|jsx|mjs)$": "<rootDir>/node_modules/babel-jest",
+        "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
+        "^(?!.*\\.(js|jsx|mjs|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+    },
+    "transformIgnorePatterns": [
+        "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$"
     ],
     "verbose": true
 }

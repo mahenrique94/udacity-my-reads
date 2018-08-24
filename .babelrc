@@ -1,0 +1,19 @@
+{
+    "plugins": [
+        "@babel/plugin-proposal-class-properties",
+        [
+            "@babel/plugin-proposal-decorators",
+            {
+                "legacy": true
+            }
+        ],
+        "@babel/plugin-transform-destructuring",
+        "@babel/plugin-transform-spread",
+        "@babel/plugin-proposal-object-rest-spread",
+        "@babel/plugin-transform-runtime"
+    ],
+    "presets": [
+        "@babel/preset-env",
+        "@babel/preset-react"
+    ]
+}
