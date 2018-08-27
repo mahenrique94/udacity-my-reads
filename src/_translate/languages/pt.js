@@ -39,6 +39,7 @@ const messages = {
                     action: "Livros API"
                 },
                 currentlyReading: "Lendo Atualmente",
+                none: "Nenhuma estante",
                 notFound: "Página não encontrada",
                 read: "Lidos",
                 wantToRead: "Querendo Ler"

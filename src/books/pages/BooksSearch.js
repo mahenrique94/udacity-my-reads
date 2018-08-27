@@ -5,10 +5,6 @@ import { search } from "../api"
 
 import { routes } from "routes"
 
-import { TIMES } from "utils/time"
-
-import BooksContext from "../contexts/BooksContext"
-
 import { Columns, Container, Section } from "react-bulma-components"
 
 import Book from "components/book/Book"
@@ -40,9 +36,7 @@ class BooksSearch extends Component {
                                 <Columns>
                                     { books.map(book => (
                                         <Columns.Column key={ book.id } size={ 4 }>
-                                            <BooksContext.Consumer>
-                                                { ({ updateShelfs }) => <Book { ...book } updateShelfs={ updateShelfs }/> }
-                                            </BooksContext.Consumer>
+                                            <Book { ...book }/>
                                         </Columns.Column>
                                     )) }
                                 </Columns>
@@ -56,17 +50,15 @@ class BooksSearch extends Component {
     }
 
     handleChange = (({ target: { value } }) => {
-        const { timeout } = this.state
-        clearTimeout(timeout)
         this.setState({
             query: value,
-            searching: !!value,
-            timeout: value
-                ? setTimeout(() =>
-                    search(value).then(({ books }) =>
-                        this.setState({ books: books.error ? [] : books, searching: false }))
-                , TIMES.HALF_SECOND)
-                : null
+            searching: !!value
+        }, () => {
+            const { timeout } = this.state
+            clearTimeout(timeout)
+            search(value)
+                .then(({ books }) => this.setState({ books: books.error ? [] : books, searching: false }))
+                .catch(() => this.setState({ books: [], searching: false }))
         })
     })
 

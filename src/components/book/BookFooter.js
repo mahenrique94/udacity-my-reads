@@ -45,9 +45,11 @@ class BookFooter extends Component {
         return (
             <StyledBookFooter centered={ loading }>
                 <If condition={ !loading } el={ this.loading() }>
-                    <Card.Footer.Item>
-                        { `${i18n.t("label.moveTo")}:` }
-                    </Card.Footer.Item>
+                    <If condition={ !!shelf } el={ null }>
+                        <Card.Footer.Item>
+                            { `${i18n.t("label.moveTo")}:` }
+                        </Card.Footer.Item>
+                    </If>
                     { this.renderStored(shelf) }
                     { this.renderCurrentlyReading(shelf) }
                     { this.renderWantToRead(shelf) }
@@ -121,6 +123,11 @@ class BookFooter extends Component {
                         action={ () => this.updateShelf(TYPES.CURRENTLY_READING) }
                         show
                         text={ i18n.t("titles.currentlyReading") }
+                    />
+                    <Action
+                        action={ () => this.updateShelf(TYPES.READ) }
+                        show
+                        text={ i18n.t("titles.read") }
                     />
                     <Action
                         action={ () => this.updateShelf(TYPES.WANT_TO_READ) }

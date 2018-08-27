@@ -1,15 +1,32 @@
-import React from "react"
+import React, { Component } from "react"
+import PropTypes from "prop-types"
 
-import BooksContext from "../contexts/BooksContext"
+import { getAll } from "../api"
 
 import BooksList from "../pages/BooksList"
 
-const Books = () => (
+import { loading } from "hoc/loading"
 
-    <BooksContext.Consumer>
-        { ({ shelfs, updateShelfs }) => <BooksList shelfs={ shelfs } updateShelfs={ updateShelfs }/> }
-    </BooksContext.Consumer>
+class Books extends Component {
 
-)
+    static propTypes = {
+        shelfs: PropTypes.object.isRequired
+    }
 
-export default Books
+    constructor(props) {
+        super(props)
+        this.state = {
+            shelfs: props.shelfs
+        }
+    }
+
+    render() {
+        const { shelfs } = this.state
+        return <BooksList shelfs={ shelfs } updateShelfs={ this.updateShelfs }/>
+    }
+
+    updateShelfs = newShelfs => this.setState({ shelfs: newShelfs })
+
+}
+
+export default loading(getAll)(Books)

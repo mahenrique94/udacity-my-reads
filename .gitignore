@@ -2,7 +2,7 @@
 /node_modules
 
 # Documentation
-.docz/dist
+.docz
 
 # Jetbrains IDE
 .idea

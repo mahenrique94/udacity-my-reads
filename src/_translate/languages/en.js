@@ -39,6 +39,7 @@ const messages = {
                     action: "Books API"
                 },
                 currentlyReading: "Currently reading",
+                none: "None Shelf",
                 notFound: "Page not found",
                 read: "Reads",
                 wantToRead: "Want to read"

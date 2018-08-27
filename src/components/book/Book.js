@@ -28,7 +28,7 @@ const Book = ({
     <Card>
         <BookImage imageLinks={ imageLinks }/>
         <Card.Content>
-            <BookHeader authors={ authors } title={ title }/>
+            <BookHeader authors={ authors } shelf={ shelf } title={ title }/>
             <BookContent content={ description }/>
             <BookInfo
                 contentVersion={ contentVersion }

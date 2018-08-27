@@ -29,6 +29,7 @@ describe("Teste for messages in english language", () => {
         expect(translations.titles.app).toEqual("My Reads")
         expect(translations.titles.books.action).toEqual("Books API")
         expect(translations.titles.currentlyReading).toEqual("Currently reading")
+        expect(translations.titles.none).toEqual("None Shelf")
         expect(translations.titles.notFound).toEqual("Page not found")
         expect(translations.titles.read).toEqual("Reads")
         expect(translations.titles.wantToRead).toEqual("Want to read")

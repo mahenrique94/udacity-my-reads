@@ -29,6 +29,7 @@ describe("Teste for messages in portuguese language", () => {
         expect(translations.titles.app).toEqual("My Reads")
         expect(translations.titles.books.action).toEqual("Livros API")
         expect(translations.titles.currentlyReading).toEqual("Lendo Atualmente")
+        expect(translations.titles.none).toEqual("Nenhuma estante")
         expect(translations.titles.notFound).toEqual("Página não encontrada")
         expect(translations.titles.read).toEqual("Lidos")
         expect(translations.titles.wantToRead).toEqual("Querendo Ler")

@@ -12,7 +12,7 @@ If.propTypes = {
         PropTypes.object,
         PropTypes.func,
         PropTypes.string
-    ]).isRequired
+    ])
 }
 
 export default If
