@@ -6,6 +6,11 @@ import http from "http"
 
 import { handleError, handleSuccess, responseWasOK } from "utils/http"
 
+const _createShelfs = (books, list) => {
+    books.forEach(book =>
+        _.isUndefined(list[book.shelf]) ? list[book.shelf] = [ book ] : list[book.shelf].push(book))
+}
+
 const get = bookId =>
     http.get(`${PATHS.BOOKS}/${bookId}`)
         .then(handleSuccess)
@@ -14,12 +19,11 @@ const get = bookId =>
 const getAll = () =>
     http.get(PATHS.BOOKS)
         .then(({ data: { books }, status }) => {
-            const list = {}
+            const shelfs = {}
             if (responseWasOK(status)) {
-                books.forEach(book =>
-                    _.isUndefined(list[book.shelf]) ? list[book.shelf] = [ book ] : list[book.shelf].push(book))
+                _createShelfs(books, shelfs)
             }
-            return list
+            return { books, shelfs }
         })
         .catch(handleError)
 

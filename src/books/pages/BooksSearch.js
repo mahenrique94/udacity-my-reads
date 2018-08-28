@@ -1,46 +1,37 @@
 import _ from "lodash"
 import React, { Component, Fragment } from "react"
 
-import { search } from "../api"
+import { getAll, search } from "../api"
 
 import { routes } from "routes"
 
-import { Columns, Container, Section } from "react-bulma-components"
+import { Container, Section } from "react-bulma-components"
 
-import Book from "components/book/Book"
 import Button from "components/Button"
 import Icon from "components/Icon"
 import If from "components/If"
+import List from "@/books/components/List"
 import NavbarSearch from "components/navbars/search/NavbarSearch"
-import NoDataMessage from "components/messages/NoDataMessage"
 import PageLoader from "components/PageLoader"
 
 class BooksSearch extends Component {
 
     state = {
-        books: [],
         query: "",
         searching: false,
+        shelfs: [],
         timeout: null
     }
 
     render() {
-        const { books, query, searching } = this.state
+        const { query, searching, shelfs } = this.state
         return (
             <Fragment>
                 <NavbarSearch handleChange={ this.handleChange } query={ query }/>
                 <Section>
                     <Container>
                         <If condition={ !searching } el={ <PageLoader/> }>
-                            <If condition={ !_.isEmpty(books) } el={ <NoDataMessage/> }>
-                                <Columns>
-                                    { books.map(book => (
-                                        <Columns.Column key={ book.id } size={ 4 }>
-                                            <Book { ...book }/>
-                                        </Columns.Column>
-                                    )) }
-                                </Columns>
-                            </If>
+                            <List shelfs={ shelfs }/>
                         </If>
                     </Container>
                 </Section>
@@ -57,8 +48,20 @@ class BooksSearch extends Component {
             const { timeout } = this.state
             clearTimeout(timeout)
             search(value)
-                .then(({ books }) => this.setState({ books: books.error ? [] : books, searching: false }))
-                .catch(() => this.setState({ books: [], searching: false }))
+                .then(({ books }) => {
+                    getAll()
+                        .then(({ books: shelfBooks, shelfs }) => {
+                            const _shelfs = Object.assign({ none: [] }, shelfs)
+                            while (!_.isEmpty(books)) {
+                                const book = books.pop()
+                                if (!shelfBooks.some(b => b.id === book.id)) {
+                                    _shelfs.none.push(book)
+                                }
+                            }
+                            this.setState({ searching: false, shelfs: _shelfs })
+                        })
+                })
+                .catch(() => this.setState({ searching: false, shelfs: [] }))
         })
     })
 

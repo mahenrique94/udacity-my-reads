@@ -8,17 +8,17 @@ const loading = fetch => Component => {
     class Loading extends React.Component {
 
         state = {
-            list: []
+            shelfs: {}
         }
 
         componentDidMount() {
             fetch()
-                .then(list => this.setState({ list }))
+                .then(({ shelfs }) => this.setState({ shelfs }))
         }
 
         render() {
-            const { list } = this.state
-            return _.isEmpty(list) ? <PageLoader/> : <Component shelfs={ list }/>
+            const { shelfs } = this.state
+            return _.isEmpty(shelfs) ? <PageLoader/> : <Component shelfs={ shelfs }/>
         }
 
     }
