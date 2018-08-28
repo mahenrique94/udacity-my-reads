@@ -54,17 +54,18 @@ class BooksSearch extends Component {
                     getAll()
                         .then(({ books: shelfBooks, shelfs }) => {
                             const list = {}
-                            const updatedBooks = books.map(book => {
-                                const finded = shelfBooks.find(bookShelf => bookShelf.id === book.id)
-                                if (finded) {
-                                    book.shelf = finded.shelf
-                                }
-                                return book
-                            })
-                            createShelfs(updatedBooks, list)
-                            console.log(list)
-                            this.setState({ searching: false, shelfs: list })
-                        })
+                            if (Array.isArray(books)) {
+                                const updatedBooks = books.map(book => {
+                                    const finded = shelfBooks.find(bookShelf => bookShelf.id === book.id)
+                                    if (finded) {
+                                        book.shelf = finded.shelf
+                                    }
+                                    return book
+                                })
+                                createShelfs(updatedBooks, list)
+                                this.setState({ searching: false, shelfs: list })
+                            }
+                        }).catch(() => this.setState({ searching: false, shelfs: [] }))
                 })
                 .catch(() => this.setState({ searching: false, shelfs: [] }))
         })
