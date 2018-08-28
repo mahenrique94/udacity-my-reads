@@ -1,9 +1,11 @@
 import _ from "lodash"
 import React, { Component, Fragment } from "react"
 
+import { routes } from "routes"
+
 import { getAll, search } from "../api"
 
-import { routes } from "routes"
+import { createShelfs } from "utils/api"
 
 import { Container, Section } from "react-bulma-components"
 
@@ -51,14 +53,17 @@ class BooksSearch extends Component {
                 .then(({ books }) => {
                     getAll()
                         .then(({ books: shelfBooks, shelfs }) => {
-                            const _shelfs = Object.assign({ none: [] }, shelfs)
-                            while (!_.isEmpty(books)) {
-                                const book = books.pop()
-                                if (!shelfBooks.some(b => b.id === book.id)) {
-                                    _shelfs.none.push(book)
+                            const list = {}
+                            const updatedBooks = books.map(book => {
+                                const finded = shelfBooks.find(bookShelf => bookShelf.id === book.id)
+                                if (finded) {
+                                    book.shelf = finded.shelf
                                 }
-                            }
-                            this.setState({ searching: false, shelfs: _shelfs })
+                                return book
+                            })
+                            createShelfs(updatedBooks, list)
+                            console.log(list)
+                            this.setState({ searching: false, shelfs: list })
                         })
                 })
                 .catch(() => this.setState({ searching: false, shelfs: [] }))

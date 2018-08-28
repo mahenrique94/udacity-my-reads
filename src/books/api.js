@@ -1,15 +1,9 @@
 import { PATHS } from "constants/API"
 
-import _ from "lodash"
-
 import http from "http"
 
+import { createShelfs } from "utils/api"
 import { handleError, handleSuccess, responseWasOK } from "utils/http"
-
-const _createShelfs = (books, list) => {
-    books.forEach(book =>
-        _.isUndefined(list[book.shelf]) ? list[book.shelf] = [ book ] : list[book.shelf].push(book))
-}
 
 const get = bookId =>
     http.get(`${PATHS.BOOKS}/${bookId}`)
@@ -21,7 +15,7 @@ const getAll = () =>
         .then(({ data: { books }, status }) => {
             const shelfs = {}
             if (responseWasOK(status)) {
-                _createShelfs(books, shelfs)
+                createShelfs(books, shelfs)
             }
             return { books, shelfs }
         })
